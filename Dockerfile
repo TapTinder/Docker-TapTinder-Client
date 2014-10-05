@@ -1,7 +1,7 @@
 FROM centos:latest
 MAINTAINER Michal Jurosz <docker@mj41.cz>
 
-RUN yum install -y perl git perl-JSON perl-Data-Dumper \
+RUN yum install -y perl git perl-JSON perl-Data-Dumper perl-YAML perl-libwww-perl perl-File-Copy-Recursive \
   && yum clean all
 
 RUN useradd taptinder
@@ -19,4 +19,4 @@ RUN git log -n1 --oneline HEAD
 
 ENV TAPTINDER_COMPONENT client
 
-CMD /home/taptinder/tt-client/ttclient-start.sh --vl=5
+CMD /home/taptinder/tt-client/ttclient-start.sh --ver=5
