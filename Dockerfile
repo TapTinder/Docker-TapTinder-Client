@@ -4,7 +4,7 @@ MAINTAINER Michal Jurosz <docker@mj41.cz>
 RUN yum install -y perl git perl-JSON perl-Data-Dumper perl-YAML perl-libwww-perl perl-File-Copy-Recursive \
   && yum clean all
 
-RUN useradd ttucl
+RUN useradd --uid 460 -U ttucl
 WORKDIR /home/ttucl/
 USER ttucl
 ENV HOME /home/ttucl
