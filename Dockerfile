@@ -1,7 +1,7 @@
 FROM centos:latest
 MAINTAINER Michal Jurosz <docker@mj41.cz>
 
-RUN yum install -y perl git perl-JSON perl-Data-Dumper perl-YAML perl-libwww-perl perl-File-Copy-Recursive \
+RUN yum install -y perl git perl-JSON perl-Data-Dumper perl-YAML perl-libwww-perl perl-File-Copy-Recursive perl-Test-Harness \
   && yum clean all
 
 RUN useradd --uid 460 -U ttucl
