@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM fedora:21
 MAINTAINER Michal Jurosz <docker@mj41.cz>
 
 RUN yum install -y perl \
