@@ -41,14 +41,8 @@ RUN echo "Force Docker image rebuild of TapTinder client to particular revision.
   && git fetch && git reset --hard 02e5ed028b \
   && git log -n1 --oneline HEAD
 
-RUN mkdir -p /home/ttucl/client-conf /home/ttucl/client-data
-RUN cp /home/ttucl/tt-client/conf/client-conf.yml.docker.example /home/ttucl/client-conf/client-conf.yml
-
-WORKDIR /home/ttucl/tt-client
-RUN git log -n1 --oneline HEAD
-
 ENV TAPTINDER_COMPONENT client
 ENV TAPTINDER_REPOS_DIR /opt/taptinder/repos
-ENV TAPTINDER_CLIENT_CONF_DIR /opt/taptinder/client/conf
+ENV TAPTINDER_CLIENT_CONF_DIR /opt/taptinder/client/conf/
 
-CMD /home/ttucl/tt-client/ttclient-start.sh --config_section_name=docker --ver=5
+CMD /home/ttucl/tt-client/ttclient-start.sh --ver=5
