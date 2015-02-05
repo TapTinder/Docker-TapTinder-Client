@@ -41,6 +41,10 @@ RUN echo "Force Docker image rebuild of TapTinder client to particular revision.
   && git fetch && git reset --hard 02e5ed028b \
   && git log -n1 --oneline HEAD
 
+USER root
+RUN rm -rf /tmp/* /var/tmp/* || :
+USER ttucl
+
 ENV TAPTINDER_COMPONENT client
 ENV TAPTINDER_REPOS_DIR /opt/taptinder/repos
 ENV TAPTINDER_CLIENT_CONF_DIR /opt/taptinder/client/conf/
